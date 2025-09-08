@@ -1,12 +1,27 @@
-# React + Vite
+Trabajo Práctico curso Coderhouse React comisión 88075 - Facundo Suarez Chagra
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*Consigna:* 
 
-Currently, two official plugins are available:
+*Entrega 1: Crea tu landing*
+Crea los primeros componentes de React, que funcionarán como piezas base en la construcción de tu e-commerce. Desarrolla una barra de navegación, debe contener los enlaces de navegación, logo de tu tienda y el widget del carrito de compras. También, crea el componente Contenedor que a futuro mostrará el catálogo de productos, utilizando "props" para personalizarlo y enviar un mensaje de bienvenida
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*Objetivos*
+- Comprender los conceptos básicos de React y su estructura de componentes.
+- Crear las bases para la homepage del ecommerce
 
-## Expanding the ESLint configuration
+*Requisitos*
+- Archivos para los componentes NavBar, CartWidget, e ItemListContainer, dentro de la carpeta components.
+- Organización correcta de los mismos: NavBar e ItemListContainer serán renderizados en App, mientras que CartWidget será renderizado en NavBar.
+- Uso de props para enviar un string con un mensaje hacia el componente ItemListContainer.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*Recomendaciones*
+- Asegúrate de hacer el "commit" y "push" de tu proyecto a GitHub para reflejar tus últimos avances en la entrega.
+- Si no quieres escribir tu propio CSS, puedes utilizar Bootstrap o librerías de UI de React para los estilos (opcional).
+- ¡Las Props son importantes! No olvides utilizar una en ItemListContainer, es nuestra primera Prop y vamos a utilizarlas en todas las clases.
+
+*Formato*
+- Link al último commit de tu repositorio en GitHub. Debe tener el nombre “CreaTuLanding1+Apellido”, por ejemplo “CreaTuLanding+Fernandez”
+
+*Criterios de evaluación*
+- Para la evaluación de tu Proyecto Final, tendremos en cuenta los siguientes criterios de evaluación.
+
