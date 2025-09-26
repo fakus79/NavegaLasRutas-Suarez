@@ -3,3 +3,9 @@
     height: 30px;
     cursor: pointer;
 }
+
+.buttonCart{
+    padding:  5px 10px 5px 10px;
+    border-radius: 12px;
+    text-align: center;
+}
