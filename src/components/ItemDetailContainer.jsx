@@ -1,25 +1,47 @@
 import './ItemListContainer.css'
-import excursiones from '../../data/excursiones';
-import Excursion from './Excursion';
 import { useParams } from "react-router";
 import ButtonAddToCart from "./ButtonAddToCart";
+import { getExcursionId } from '../../data/MockAPIExcursiones';
+import { useState, useEffect } from 'react';
+
+let tourElegido = "" ;
+let strDias = '';
+let strDtoefvo = '';
+let strFamilias = '';
 
 export default function ItemDetailContainer() {
+  // la excursión me llega por parámetros y la busco en el array
   const {idTour} = useParams(); 
-  const tourElegido = excursiones.find ( (item) => item.codigoTour == Number(idTour));
-
-  let strDias = '';
-  let strDtoefvo = '';
-  let strFamilias = '';
-
-  //armo string para días, familias, y dto efvo
-  strDias = (tourElegido.diasDuracion > 1) ? "días" : "día";
-  strFamilias = tourElegido.esFamiliar ? " (apto familias)" : " (no apto familias)";
-  if (Number(tourElegido.dtoEfvo) > 0) strDtoefvo = ' (' + tourElegido.dtoEfvo + '% dto efvo)';
-
+  const [tourElegido,setTour] = useState(null); //por defecto excursión seleccionada null para renderizado condicional
+  
+  useEffect ( () => {
+      //codigo para obtener la excursión mediante promesa
+      getExcursionId(idTour)
+      .then( (value) => {
+        setTour(value);  //caso exitoso, uso setter para asignar el valor obtenido y armo strings 
+        strDias = (value.diasDuracion > 1) ? "días" : "día";
+        strFamilias = value.esFamiliar ? " (apto familias)" : " (no apto familias)";
+        if (Number(value.dtoEfvo) > 0) strDtoefvo = ' (' + value.dtoEfvo + '% dto efvo)';
+      })
+      .catch( (error) => {
+        console.error ("Hubo un error al recuperar la excursión: " + error);  //caso error, muestro por consola
+      })
+    }, [tourElegido]) 
+  
   return (
+      //renderizado condicional para el spinner de carga o sino
       //recuadro que muestra los detalles de una excursión
       <div className="excursionDetalle">
+        {        
+          !tourElegido && (
+          <div className="loading">
+            <span>Cargando excursión de la base de datos</span>
+            <img width="50px" src="../assets/loading.gif"/>
+          </div>
+          )
+        }
+        { tourElegido && (
+          <>
           <div className="excursionInfo">
               <h2 className="excursionTitulo">{tourElegido.nombreTour}</h2>
               <p className="excursionItems"><b>Descripción: </b>{tourElegido.descTour}</p>
@@ -34,6 +56,8 @@ export default function ItemDetailContainer() {
           <div className="excursionImagen">
               <img src={`../assets/${tourElegido.imgTour}`} ></img>
           </div>
+          </>
+        )}
       </div>
   )
 }
