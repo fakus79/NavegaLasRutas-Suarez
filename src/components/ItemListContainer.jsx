@@ -23,7 +23,8 @@ export default function ItemListContainer(props) {
 
   return (
     //texto de bienvenida primer renglón
-    //abajo una card por cada excursion
+    //luego renderizado condicional para el spinner
+    //finalmente una card por cada excursion
     <div>
       <div className="bienvenida"> {props.mensaje}</div>
       {

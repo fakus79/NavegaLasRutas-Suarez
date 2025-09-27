@@ -20,7 +20,10 @@ export default function App() {
           <ItemDetailContainer></ItemDetailContainer>
           }>
           </Route>
-        <Route path ="*" element={<h1>404 not found</h1>}></Route>
+        <Route path ="*" element={
+          <h1>404: La página que está buscando no existe</h1>
+          }>
+        </Route>
       </Routes>
     </BrowserRouter>
 
