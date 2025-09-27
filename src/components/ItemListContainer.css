@@ -1,3 +1,9 @@
+.bienvenida{
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .excursiones {
   display: flex;
   flex-wrap: wrap;           /* ✅ Permite que las cards pasen a la línea siguiente */
@@ -12,4 +18,45 @@
   flex: 1 1 calc(25% - 20px); /* 25% del ancho menos el gap para que entren 4 */
   max-width: calc(25% - 20px);
   box-sizing: border-box;
+}
+
+
+/* Estilos para página de detalle de excursión */
+
+.excursionDetalle {
+  display: flex;
+  gap: 1rem;
+  margin: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.excursionInfo {
+  flex: 1 1 auto;           
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.excursionTitulo { 
+  margin: 0 0 .75rem; 
+}
+.excursionItems { 
+  margin: 0; line-height: 1.5; 
+}
+
+.excursionImagen {
+  flex: 0 1 50%;               
+  max-width: 50%;
+  min-width: 50%;
+  margin: 0;                   
+}
+
+.excursionImagen img {
+  width: 100%;
+  height: auto;                
+  display: block;
 }

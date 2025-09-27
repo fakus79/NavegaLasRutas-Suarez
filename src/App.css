@@ -9,3 +9,8 @@
 body {
     background-color: #d0d3cd;
 }
+
+a {
+ color: inherit; 
+  text-decoration: none; /* no underline */
+}

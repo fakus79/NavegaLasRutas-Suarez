@@ -1,6 +1,7 @@
 import './App.css'
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from 'react-router';
 
 export default function App() {
@@ -12,10 +13,13 @@ export default function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path ="/" element={
-          <ItemListContainer mensaje="Bienvenido a mi agencia de tours"></ItemListContainer>  
+          <ItemListContainer mensaje="Bienvenido a BariTours, donde encontrará las mejores excursiones para realizar en Bariloche"></ItemListContainer>  
           }>
         </Route>
-        <Route path ="/detail" element={<h1>detalle</h1>}></Route>
+        <Route path ="/detalleTour/:idTour" element={
+          <ItemDetailContainer></ItemDetailContainer>
+          }>
+          </Route>
         <Route path ="*" element={<h1>404 not found</h1>}></Route>
       </Routes>
     </BrowserRouter>
