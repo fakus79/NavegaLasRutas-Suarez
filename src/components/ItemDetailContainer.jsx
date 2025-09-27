@@ -18,16 +18,17 @@ export default function ItemDetailContainer() {
   if (Number(tourElegido.dtoEfvo) > 0) strDtoefvo = ' (' + tourElegido.dtoEfvo + '% dto efvo)';
 
   return (
+      //recuadro que muestra los detalles de una excursión
       <div className="excursionDetalle">
           <div className="excursionInfo">
               <h2 className="excursionTitulo">{tourElegido.nombreTour}</h2>
-              <p className="excursionItems"><b>Descripción:</b>{tourElegido.descTour}</p>
-              <p className="excursionItems"><b>Duración:</b>{tourElegido.diasDuracion} ${' ' + strDias + '' + strFamilias}</p>
-              <p className="excursionItems"><b>Qué Incluye:</b>{tourElegido.incluyeTour}</p>
-              <p className="excursionItems"><b>Qué no incluye:</b>{tourElegido.noIncluyeTour} </p>
+              <p className="excursionItems"><b>Descripción: </b>{tourElegido.descTour}</p>
+              <p className="excursionItems"><b>Duración: </b>{tourElegido.diasDuracion} {' ' + strDias + '' + strFamilias}</p>
+              <p className="excursionItems"><b>Qué Incluye: </b>{tourElegido.incluyeTour}</p>
+              <p className="excursionItems"><b>Qué no incluye: </b>{tourElegido.noIncluyeTour} </p>
               <p className="excursionItems"><b>Precio por persona:</b> $ {tourElegido.precioPersona + strDtoefvo}</p>
               <div>
-                  <button>Agregar al carrito</button>
+                  <button className="buttonCart" >Agregar al carrito</button>
               </div>
           </div>
           <div className="excursionImagen">

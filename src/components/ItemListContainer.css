@@ -6,10 +6,10 @@
 
 .excursiones {
   display: flex;
-  flex-wrap: wrap;           /* ✅ Permite que las cards pasen a la línea siguiente */
-  gap: 20px;                 /* ✅ Espacio entre cards (más prolijo) */
-  justify-content: center;   /* Centra las cards en cada fila */
-  align-items: flex-start;   /* Alinea las cards arriba en caso de distintas alturas */
+  flex-wrap: wrap;           
+  gap: 20px;                 
+  justify-content: center;   
+  align-items: flex-start;   
   text-align: center;
   position: relative;
 }
