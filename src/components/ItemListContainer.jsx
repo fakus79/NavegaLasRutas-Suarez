@@ -25,7 +25,15 @@ export default function ItemListContainer(props) {
     //texto de bienvenida primer renglón
     //abajo una card por cada excursion
     <div>
-      <div className="bienvenida"> {props.mensaje}</div>      
+      <div className="bienvenida"> {props.mensaje}</div>
+      {
+        excursionesObtenidas.length === 0 && (
+          <div className="loading">
+            <span>Cargando excursiones de la base de datos</span>
+            <img width="50px" src="../assets/loading.gif"/>
+          </div>
+        )
+      }
       <div className="excursiones">
         {excursionesObtenidas.map(excursion => (
           <Excursion key={excursion.codigoTour} {...excursion} />

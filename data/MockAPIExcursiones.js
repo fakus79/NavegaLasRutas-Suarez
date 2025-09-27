@@ -4,11 +4,12 @@ import excursiones from './excursiones';
 export default function obtenerExcursiones(){
     
     const promiseExcursiones = new Promise ( (resolve,reject) =>{
-        //uso timeout para devolver el array a los 5 segundos
+        //uso timeout para devolver el array a los 4000 milisegundos
         setTimeout( () => {
-            resolve(excursiones); //descomentar para simular éxito recuperando datos
-            //reject("error"); //descomentar para simular error recuperando datos
-        },5000)
+            //comentar o descomentar para simular éxito/error recuperando datos
+            resolve(excursiones); 
+            //reject("Base de datos no operativa"); 
+        }, 4000)  
     })
     
     return promiseExcursiones;
