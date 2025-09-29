@@ -6,8 +6,6 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 
 export default function App() {
 
-  //const [page, setPage] = useState("home");
-
   return (
     <BrowserRouter>
       <NavBar></NavBar>
@@ -16,10 +14,14 @@ export default function App() {
           <ItemListContainer mensaje="Bienvenido a BariTours, donde encontrará las mejores excursiones para realizar en Bariloche"></ItemListContainer>  
           }>
         </Route>
+        <Route path ="/cat/:nombreCategoria" element={
+          <ItemListContainer></ItemListContainer>
+          }>
+        </Route>
         <Route path ="/detalleTour/:idTour" element={
           <ItemDetailContainer></ItemDetailContainer>
           }>
-          </Route>
+        </Route>
         <Route path ="*" element={
           <h1>404: La página que está buscando no existe</h1>
           }>

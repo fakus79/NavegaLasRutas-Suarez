@@ -2,6 +2,9 @@
   padding: 20px;
   display: flex;
   justify-content: center;
+  font-size: 1.3rem;  
+  font-weight: bold;
+  margin: 1rem 0;
 }
 
 .excursiones {
@@ -26,6 +29,38 @@
   box-sizing: border-box;
 }
 
+.excursionesLista {
+  display: flex;
+  flex-wrap: wrap;     
+  gap: 1rem;           
+  margin-top: 1rem;
+}
+
+.categoriaTitulo {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;            
+  box-sizing: border-box; 
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.categoriaTitulo span {
+  flex: 1 1 auto;     
+  text-align: left;   
+}
+
+.btnLimpiar {
+  margin-left: 1rem;    
+  background-color: #02607C;
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
 
 /* Estilos para página de detalle de excursión */
 
@@ -65,4 +100,13 @@
   width: 100%;
   height: auto;                
   display: block;
+}
+
+.buttonCart {  
+  background-color: #02607C;
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
 }

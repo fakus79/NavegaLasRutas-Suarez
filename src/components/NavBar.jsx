@@ -17,7 +17,8 @@ export default function NavBar() {
           <Link to="/cat/invernales"> <span>Invernales</span> </Link>
           <Link to="/cat/lacustres"> <span>Lacustres</span> </Link>
           <Link to="/cat/familiares"> <span>Familiares</span> </Link>
-          <Link to="/cat/undia"> <span>Por el día</span> </Link>
+          <Link to="/cat/poreldia"> <span>Por el día</span> </Link>
+          <Link to="/cat/variosdias"> <span>Varios días</span> </Link>
           <Link to="/cat/dtoefvo">  <span>Dto Efectivo</span> </Link>
         </div>
         <div>
