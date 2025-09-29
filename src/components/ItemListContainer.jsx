@@ -1,5 +1,4 @@
 import './ItemListContainer.css'
-import excursiones from '../../data/excursiones';
 import Excursion from './Excursion';
 import obtenerExcursiones from '../../data/MockAPIExcursiones';
 import { useState, useEffect } from 'react';

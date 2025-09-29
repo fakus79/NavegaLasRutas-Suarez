@@ -45,6 +45,7 @@ export default function ItemDetailContainer() {
           <div className="excursionInfo">
               <h2 className="excursionTitulo">{tourElegido.nombreTour}</h2>
               <p className="excursionItems"><b>Descripción: </b>{tourElegido.descTour}</p>
+              <p className="excursionItems"><b>Categoría: </b>{tourElegido.categoriaTour}</p>
               <p className="excursionItems"><b>Duración: </b>{tourElegido.diasDuracion} {' ' + strDias + '' + strFamilias}</p>
               <p className="excursionItems"><b>Qué Incluye: </b>{tourElegido.incluyeTour}</p>
               <p className="excursionItems"><b>Qué no incluye: </b>{tourElegido.noIncluyeTour} </p>

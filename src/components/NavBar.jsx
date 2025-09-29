@@ -14,8 +14,9 @@ export default function NavBar() {
         <div className="navbar-categories">
           <Link to="/"> <span>Home</span> </Link>
           <Link to="/cat/tradicionales"> <span>Tradicionales</span> </Link>
-          <Link to="/cat/familiares"> <span>Familiares</span> </Link>
+          <Link to="/cat/invernales"> <span>Invernales</span> </Link>
           <Link to="/cat/lacustres"> <span>Lacustres</span> </Link>
+          <Link to="/cat/familiares"> <span>Familiares</span> </Link>
           <Link to="/cat/undia"> <span>Por el día</span> </Link>
           <Link to="/cat/dtoefvo">  <span>Dto Efectivo</span> </Link>
         </div>
