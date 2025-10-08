@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from 'react-router';
+import app from '../data/firebase';
 
 export default function App() {
 
