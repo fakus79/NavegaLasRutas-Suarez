@@ -4,12 +4,15 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from 'react-router';
 import app from '../data/firebase';
+import {cargaInicialExcursiones} from '../data/firebase';
+import firebase from 'firebase/compat/app';
 
 export default function App() {
 
   return (
     <BrowserRouter>
       <NavBar></NavBar>
+      <button onClick={cargaInicialExcursiones}>Carga Excursiones</button>
       <Routes>
         <Route path ="/" element={
           <ItemListContainer mensaje="Bienvenido a BariTours, donde encontrará las mejores excursiones para realizar en Bariloche"></ItemListContainer>  
