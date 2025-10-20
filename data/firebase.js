@@ -1,10 +1,7 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore, addDoc } from "firebase/firestore";
-import excursiones from "./excursiones";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "firebase/app";
+import { collection, doc, getDoc, getDocs, getFirestore, addDoc } from "firebase/firestore";
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -41,6 +38,18 @@ export async function obtenerExcursiones(){
     );
 
   return docsExcursiones;
+}
+
+export async function obtenerExcursionId(idTour){
+  // conecto a la colección y obtengo un documento que matchea con el parámetro
+  const refExcursion = doc(bbdd, "excursiones", idTour);
+  const snapExcursion = await getDoc(refExcursion);
+
+  //le agrego el id al documento aparte como "codigoTour"
+  const docExcursion = snapExcursion.data();
+  docExcursion.codigoTour = snapExcursion.id;
+
+  return docExcursion;
 }
 
 // Initialize Firebase

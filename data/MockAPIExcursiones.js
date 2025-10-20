@@ -14,7 +14,7 @@ export default function obtenerExcursionesVIEJO(){
     return promiseExcursiones;
 }
 
-export function getExcursionId(idTour){
+export function obtenerExcursionIdVIEJO(idTour){
     const excursionPedida = excursiones.find ( (item) => item.codigoTour == Number(idTour));
 
     const promiseExcursion = new Promise ( (resolve,reject) =>{

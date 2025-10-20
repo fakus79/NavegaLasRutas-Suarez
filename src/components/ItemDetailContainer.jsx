@@ -1,7 +1,7 @@
 import './ItemListContainer.css'
 import { useParams } from "react-router";
 import ButtonAddToCart from "./ButtonAddToCart";
-import { getExcursionId } from '../../data/MockAPIExcursiones';
+import { obtenerExcursionId } from '../../data/firebase';
 import { useState, useEffect } from 'react';
 
 let tourElegido = "" ;
@@ -16,7 +16,7 @@ export default function ItemDetailContainer() {
   
   useEffect ( () => {
       //codigo para obtener la excursión mediante promesa
-      getExcursionId(idTour)
+      obtenerExcursionId(idTour)
       .then( (value) => {
         setTour(value);  //caso exitoso, uso setter para asignar el valor obtenido y armo strings 
         strDias = (value.diasDuracion > 1) ? "días" : "día";
