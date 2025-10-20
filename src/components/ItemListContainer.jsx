@@ -1,7 +1,9 @@
 import './ItemListContainer.css'
 import Excursion from './Excursion';
 
-import obtenerExcursiones from '../../data/MockAPIExcursiones';
+//import obtenerExcursiones from '../../data/MockAPIExcursiones';
+import {obtenerExcursiones} from '../../data/firebase';
+
 import { obtenerExcursionesPorCategoria } from '../../data/MockAPIExcursiones';
 
 import { useState, useEffect } from 'react';
@@ -72,7 +74,7 @@ export default function ItemListContainer(props) {
                 )
               }
               <div className="excursionesLista">
-                { //muestro una card por cada excursión
+                { //muestro una card por cada excursión   
                   excursionesObtenidas.map((excursion) => (
                     <Excursion key={excursion.codigoTour} {...excursion} />
                   ))

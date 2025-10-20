@@ -18,15 +18,29 @@ const firebaseConfig = {
 
 // funcion helper que se llama una sola vez para cargar el array de excursiones a firebase
 export async function cargaInicialExcursiones(){
-  const Ref = collection (bbdd,"excursiones");
+  const ref = collection (bbdd,"excursiones");
 
-  //recorro el array de excursiones, borro el id porque se autogenera 
+  //recorro el array de excursiones agregandolas a fb, borro el id porque se autogenera 
   for (let item of excursiones){
     delete item.codigoTour;
     // convierto de objeto tipo Excursiones a objeto genérico para que funcione
-    const nuevoDoc = await addDoc(Ref,Object.assign({}, item));
+    const nuevoDoc = await addDoc(ref,Object.assign({}, item));
     //console.log ("Creacion exitosa, id nuevo doc: ", nuevoDoc.id)
   }
+}
+
+// funcion que obtiene todas las excursiones de la BBDD 
+export async function obtenerExcursiones(){
+  // conecto a la colección y creo un snapshot con los documentos de la misma
+  const refExcursiones = collection(bbdd, "excursiones");
+  const snapExcursiones = await getDocs(refExcursiones);
+
+  //le agrego el id de cada documento aparte como "codigoTour"
+  const docsExcursiones = snapExcursiones.docs.map(
+      item => { return { codigoTour: item.id, ...item.data() } }
+    );
+
+  return docsExcursiones;
 }
 
 // Initialize Firebase

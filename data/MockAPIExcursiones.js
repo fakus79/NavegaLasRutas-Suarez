@@ -1,7 +1,7 @@
 import excursiones from './excursiones';
 
 // funcion que usa una promesa para simular que se tarda en devolver array de excursiones
-export default function obtenerExcursiones(){
+export default function obtenerExcursionesVIEJO(){
     const promiseExcursiones = new Promise ( (resolve,reject) =>{
         //uso timeout para devolver el array a los 4000 milisegundos
         setTimeout( () => {
