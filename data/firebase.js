@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { collection, doc, getDoc, getDocs, getFirestore, addDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, getFirestore, query, where, addDoc } from "firebase/firestore";
 
 
 // Your web app's Firebase configuration
@@ -40,6 +40,8 @@ export async function obtenerExcursiones(){
   return docsExcursiones;
 }
 
+
+// función que devuelve los datos de una sola excursión según parámetro 
 export async function obtenerExcursionId(idTour){
   // conecto a la colección y obtengo un documento que matchea con el parámetro
   const refExcursion = doc(bbdd, "excursiones", idTour);
@@ -50,6 +52,48 @@ export async function obtenerExcursionId(idTour){
   docExcursion.codigoTour = snapExcursion.id;
 
   return docExcursion;
+}
+
+// función que devuelve las excursiones filtradas por nombre de categoría
+export async function obtenerExcursionesPorCategoria(nombreCategoria){
+  let queryCateg = null;
+  
+  // conecto a la colección 
+  const refExcursiones = collection(bbdd, "excursiones");
+
+  //switch porque tengo algunas categorías con nombre normal, pero otras depeden de atributos de la excursión
+  switch(nombreCategoria){
+      case 'Poreldia':
+          //filtro solo las que duran un día
+          queryCateg = query(refExcursiones, where("diasDuracion","==",1));     
+          break;
+      case 'Variosdias':
+          //filtro solo las que duran más un día
+          queryCateg = query(refExcursiones, where("diasDuracion",">",1));     
+          break;
+      case 'Familiares':
+          //filtro solo excursiones que son familiares
+          queryCateg = query(refExcursiones, where("esFamiliar","==",true));
+          break;
+      case 'Dtoefvo':
+          //filtro solo excursiones que tienen más de 0 descuento efvo
+          queryCateg = query(refExcursiones, where("dtoEfvo",">",0));     
+          break;
+      default: {          
+          //filtro por categorías según nombre del parámetro textual
+          queryCateg = query(refExcursiones, where("categoriaTour","==",nombreCategoria));     
+          }
+  }
+
+  // obtengo el snapshot del query filtrado
+  const snapExcursiones = await getDocs(queryCateg);
+
+  //le agrego el id de cada documento aparte como "codigoTour"
+  const docsExcursiones = snapExcursiones.docs.map(
+      item => { return { codigoTour: item.id, ...item.data() } }
+    );
+
+  return docsExcursiones;
 }
 
 // Initialize Firebase

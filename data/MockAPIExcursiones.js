@@ -29,7 +29,7 @@ export function obtenerExcursionIdVIEJO(idTour){
     return promiseExcursion;
 }
 
-export function obtenerExcursionesPorCategoria(nombreCategoria){
+export function obtenerExcursionesPorCategoriaVIEJO(nombreCategoria){
 
     let excursionesFiltradas = [];
 

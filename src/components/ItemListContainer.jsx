@@ -1,10 +1,7 @@
 import './ItemListContainer.css'
 import Excursion from './Excursion';
 
-//import obtenerExcursiones from '../../data/MockAPIExcursiones';
-import {obtenerExcursiones} from '../../data/firebase';
-
-import { obtenerExcursionesPorCategoria } from '../../data/MockAPIExcursiones';
+import { obtenerExcursiones, obtenerExcursionesPorCategoria } from '../../data/firebase';
 
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router";
