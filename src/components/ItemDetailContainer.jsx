@@ -26,7 +26,7 @@ export default function ItemDetailContainer() {
       .catch( (error) => {
         console.error ("Hubo un error al recuperar la excursión: " + error);  //caso error, muestro por consola
       })
-    }, [tourElegido]) 
+    }, [idTour]) 
   
   return (
       //renderizado condicional para el spinner de carga o sino
