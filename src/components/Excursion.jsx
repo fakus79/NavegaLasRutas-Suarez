@@ -3,6 +3,10 @@ import { Link } from "react-router";
 
 export default function Excursion({codigoTour, nombreTour, imgTour, categoriaTour, resumenTour, descTour, incluyeTour, noIncluyeTour, diasDuracion, esFamiliar, precioPersona, dtoEfvo}) {
 
+    const item = { 
+        codigoTour, nombreTour, imgTour, categoriaTour, resumenTour, descTour, incluyeTour, noIncluyeTour, diasDuracion, esFamiliar, precioPersona, dtoEfvo,
+    };
+
     return (
         // tarjeta de la excursión que muestra foto, nombre, resumen, botón agregar y tiene link a detalle
         <div className="excursiones card">
@@ -15,7 +19,7 @@ export default function Excursion({codigoTour, nombreTour, imgTour, categoriaTou
                 </div>
                 <div className="card-footer bg-transparent border-top border-success text-center w-100">
                     $ {precioPersona}
-                    <ButtonAddToCart></ButtonAddToCart>
+                    <ButtonAddToCart tourAgregar={item}></ButtonAddToCart>
                 </div>
             </Link>
         </div>
