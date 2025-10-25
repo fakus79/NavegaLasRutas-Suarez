@@ -5,13 +5,14 @@ import cartContext from '../context/cartContext';
 
 export default function CartWidget() {
 
-  const contexto=useContext(cartContext);
-  return (
-    <>
-    <div className="navbar-cart">
-        <img src="./assets/cart.png" /> {contexto}
-    </div >
-    </>
+  const { contarItems } = useContext(cartContext);
+  
+  return (    
+    <div>
+        <span className="navbar-cart">  {contarItems()}</span>
+    </div>
+    
   )
 }
+
 
