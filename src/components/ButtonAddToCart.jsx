@@ -1,18 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from 'react';
+import cartContext from '../context/cartContext';
 
-export default function ButtonAddToCart() {
+export default function ButtonAddToCart(props) {
 
     let [status, setStatus] = useState("no agregado");
 
-    function AgregarExcursion(){
-        
-        setStatus =("agregado");
-        alert("added");
-        console.log(status);
-    }
-    return (
-        <div>
-            <button className="buttonCart" onClick={AgregarExcursion}>Agregar</button>
+    const { agregarAlCarrito } = useContext(cartContext);
+       
+    return (        
+        <div>            
+            <button className="buttonCart" onClick={() => agregarAlCarrito(props.tourAgregar)}>Agregar</button>
         </div>
     )
 

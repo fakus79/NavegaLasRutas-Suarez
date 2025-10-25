@@ -2,7 +2,8 @@ import './ItemListContainer.css'
 import { useParams } from "react-router";
 import ButtonAddToCart from "./ButtonAddToCart";
 import { obtenerExcursionId } from '../../data/firebase';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import cartContext from '../context/cartContext';
 
 let tourElegido = "" ;
 let strDias = '';
@@ -10,6 +11,9 @@ let strDtoefvo = '';
 let strFamilias = '';
 
 export default function ItemDetailContainer() {
+
+  const { agregarAlCarrito } = useContext(cartContext);
+
   // la excursión me llega por parámetros y la busco en el array
   const {idTour} = useParams(); 
   const [tourElegido,setTour] = useState(null); //por defecto excursión seleccionada null para renderizado condicional
@@ -51,7 +55,7 @@ export default function ItemDetailContainer() {
               <p className="excursionItems"><b>Qué no incluye: </b>{tourElegido.noIncluyeTour} </p>
               <p className="excursionItems"><b>Precio por persona:</b> $ {tourElegido.precioPersona + strDtoefvo}</p>
               <div>
-                  <button className="buttonCart" >Agregar al carrito</button>
+                  <button className="buttonCart" onClick={ () => agregarAlCarrito(tourElegido)}>Agregar al carrito</button>
               </div>
           </div>
           <div className="excursionImagen">
