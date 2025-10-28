@@ -21,18 +21,23 @@ export function CartProvider(props){
         //alert(`Agregaste ${item.nombreTour}`);
     }
 
-    function contarItems(){
+    function contarItemsCarrito(){
         let cantidad=0;
         carrito.forEach(item =>cantidad+=item.cantidad);
-        console.log(cantidad);
         return cantidad;
     }
 
-    function quitarItem(codigoTour){
+    function precioCarrito(){
+        let precio=0;
+        carrito.forEach(item =>precio+=item.cantidad*item.precioPersona);
+        return precio;
+    }
+
+    function quitarItemCarrito(codigoTour){
         let nuevoCarrito = structuredClone(carrito);
 
         const itemEnCarrito = nuevoCarrito.find(item => item.codigoTour===codigoTour);
-        const cantidad = nuevoCarrito.cantidad;
+        const cantidad = itemEnCarrito.cantidad;
 
         if (cantidad > 1) {
             const indice = nuevoCarrito.findIndex(item => item.codigoTour===codigoTour)
@@ -45,8 +50,16 @@ export function CartProvider(props){
         setCarrito(nuevoCarrito);
     }
 
+    function quitarItemsCarrito(codigoTour){
+        let nuevoCarrito = structuredClone(carrito);
+
+        nuevoCarrito = nuevoCarrito.filter(item => item.codigoTour !== codigoTour)
+        
+        setCarrito(nuevoCarrito);
+    }
+
     return(
-        <cartContext.Provider value={ {agregarAlCarrito, contarItems, quitarItem, carrito} }>
+        <cartContext.Provider value={ {agregarAlCarrito, contarItemsCarrito, quitarItemCarrito, quitarItemsCarrito, carrito, precioCarrito} }>
             {props.children}
         </cartContext.Provider>
     )
