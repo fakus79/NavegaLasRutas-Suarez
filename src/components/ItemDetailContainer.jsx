@@ -55,7 +55,7 @@ export default function ItemDetailContainer() {
               <p className="excursionItems"><b>Qué no incluye: </b>{tourElegido.noIncluyeTour} </p>
               <p className="excursionItems"><b>Precio por persona:</b> $ {tourElegido.precioPersona + strDtoefvo}</p>
               <div>
-                  <button className="buttonCart" onClick={ () => agregarAlCarrito(tourElegido)}>Agregar al carrito</button>
+                  <button className="buttonCart" onClick={ () => agregarAlCarrito(tourElegido)}>Agregar visitante</button>
               </div>
           </div>
           <div className="excursionImagen">
