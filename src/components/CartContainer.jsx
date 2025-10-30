@@ -2,9 +2,16 @@ import './CartContainer.css';
 import { useContext } from "react";
 import { Link } from "react-router";
 import cartContext from "../context/cartContext";
+import { crearOrden } from '../../data/firebase';
+
+async function FinalizarCompra(datosOrdenCompra){
+    const nuevaOrden = await crearOrden(datosOrdenCompra);
+    alert (`compra exitosa! nuevo id es ${nuevaOrden.id}`);
+    vaciarCarrito();
+}
 
 function CartContainer() {
-    const { carrito, quitarItemCarrito, quitarItemsCarrito, precioCarrito, agregarAlCarrito } = useContext(cartContext);
+    const { carrito, quitarItemCarrito, quitarItemsCarrito, precioCarrito, agregarAlCarrito, vaciarCarrito} = useContext(cartContext);
 
     return (
         <div className="cart-container">
@@ -48,7 +55,7 @@ function CartContainer() {
                         <span>Total:</span>
                         <strong>$ {precioCarrito()}</strong>
                     </div>
-                    <button className="checkout-btn">Finalizar compra</button>
+                    <button className="checkout-btn" onClick={FinalizarCompra}>Finalizar compra</button>
                 </>
             )}
         </div>

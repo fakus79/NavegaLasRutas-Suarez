@@ -26,6 +26,13 @@ export async function cargaInicialExcursiones(){
   }
 }
 
+// funcion para crear una orden de compra
+export async function crearOrden(datosOrden){
+  const refOrdenes = collection(bbdd, "ordenes");
+  const nuevaOrden = await addDoc(refOrdenes, datosOrden);
+  return nuevaOrden;
+}
+
 // funcion que obtiene todas las excursiones de la BBDD 
 export async function obtenerExcursiones(){
   // conecto a la colección y creo un snapshot con los documentos de la misma

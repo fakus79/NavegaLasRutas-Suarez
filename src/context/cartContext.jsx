@@ -58,8 +58,12 @@ export function CartProvider(props){
         setCarrito(nuevoCarrito);
     }
 
+    function vaciarCarrito(){
+        setCarrito([]);
+    }
+
     return(
-        <cartContext.Provider value={ {agregarAlCarrito, contarItemsCarrito, quitarItemCarrito, quitarItemsCarrito, carrito, precioCarrito} }>
+        <cartContext.Provider value={ {agregarAlCarrito, contarItemsCarrito, quitarItemCarrito, quitarItemsCarrito, carrito, precioCarrito, vaciarCarrito} }>
             {props.children}
         </cartContext.Provider>
     )
