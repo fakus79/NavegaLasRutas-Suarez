@@ -3,15 +3,27 @@ import { useContext } from "react";
 import { Link } from "react-router";
 import cartContext from "../context/cartContext";
 import { crearOrden } from '../../data/firebase';
+import FormCheckout from './FormCheckout';
 
-async function FinalizarCompra(datosOrdenCompra){
-    const nuevaOrden = await crearOrden(datosOrdenCompra);
-    alert (`compra exitosa! nuevo id es ${nuevaOrden.id}`);
-    vaciarCarrito();
-}
+
 
 function CartContainer() {
     const { carrito, quitarItemCarrito, quitarItemsCarrito, precioCarrito, agregarAlCarrito, vaciarCarrito} = useContext(cartContext);
+
+    // funcion que suma los datos del carrito a los del comprador que vinieron del form y llama al context para grabarlos
+    async function FinalizarCompra(datosComprador){
+
+    const orden = {
+        comprador: datosComprador,
+        items: carrito,
+        preciofinal: precioCarrito(),
+        fechacompra: new Date()
+    };
+
+    const nuevaOrden = await crearOrden(orden);
+    //alert (`compra exitosa! nuevo id es ${nuevaOrden.id}`);
+    vaciarCarrito();
+}
 
     return (
         <div className="cart-container">
@@ -47,7 +59,7 @@ function CartContainer() {
                     <div className="cart-empty">
                         <p>🛒 Tu carrito está vacío</p>
                     </div>
-                    <button className="checkout-btn disabled" disabled>Finalizar compra</button>
+                    <button className="clear-btn" disabled>Agregar items para finalizar la compra</button>
                 </>
             ) : (
                 <>
@@ -55,7 +67,7 @@ function CartContainer() {
                         <span>Total:</span>
                         <strong>$ {precioCarrito()}</strong>
                     </div>
-                    <button className="checkout-btn" onClick={FinalizarCompra}>Finalizar compra</button>
+                    <FormCheckout handler={FinalizarCompra}/>
                 </>
             )}
         </div>

@@ -102,16 +102,16 @@
   margin-top: 20px;
   font-size: 1.2em;
   padding-top: 10px;
-  border-top: 2px solid #ddd;
 }
 
-.checkout-btn {
+
+.clear-btn {
   display: block;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 8px;
   padding: 10px;
-  background-color: #02607C;
-  color: white;
+  background-color: #e2e2e2;
+  color: #333;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -119,11 +119,6 @@
   transition: background-color 0.3s;
 }
 
-.checkout-btn:hover {
-  background-color: #013748;
-}
-
-.checkout-btn:disabled {
-  background-color: #016b8b;
-  cursor: not-allowed;
+.clear-btn:hover {
+  background-color: #d3d3d3;
 }
