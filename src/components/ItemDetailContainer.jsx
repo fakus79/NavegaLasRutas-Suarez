@@ -1,11 +1,9 @@
 import './ItemListContainer.css'
-import { useParams } from "react-router";
-import ButtonAddToCart from "./ButtonAddToCart";
+import { useParams, useNavigate } from "react-router";
 import { obtenerExcursionId } from '../../data/firebase';
 import { useState, useEffect, useContext } from 'react';
 import cartContext from '../context/cartContext';
 
-let tourElegido = "" ;
 let strDias = '';
 let strDtoefvo = '';
 let strFamilias = '';
@@ -13,11 +11,27 @@ let strFamilias = '';
 export default function ItemDetailContainer() {
 
   const { agregarAlCarrito } = useContext(cartContext);
+  const navigate = useNavigate();
 
   // la excursión me llega por parámetros y la busco en el array
   const {idTour} = useParams(); 
-  const [tourElegido,setTour] = useState(null); //por defecto excursión seleccionada null para renderizado condicional
-  
+  const [tourElegido,setTour] = useState(null); 
+
+  //agregar al carrito y mostrar el modal
+  function agregarTour(tourElegido) {
+    agregarAlCarrito(tourElegido);
+    const modal = new bootstrap.Modal(document.getElementById('modalTourAgregado'));
+    modal.show();
+  }
+
+  //cerrar modal y redirigir al carrito
+  function manejarIrCarrito() {
+    const modalElement = document.getElementById('modalTourAgregado');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) modal.hide();
+    navigate('/Cart');
+  }
+
   useEffect ( () => {
       //codigo para obtener la excursión mediante promesa
       obtenerExcursionId(idTour)
@@ -55,12 +69,30 @@ export default function ItemDetailContainer() {
               <p className="excursionItems"><b>Qué no incluye: </b>{tourElegido.noIncluyeTour} </p>
               <p className="excursionItems"><b>Precio por persona:</b> $ {tourElegido.precioPersona + strDtoefvo}</p>
               <div>
-                  <button className="buttonCart" onClick={ () => agregarAlCarrito(tourElegido)}>Agregar visitante</button>
+                  <button className="buttonCart" onClick={ () => agregarTour(tourElegido)}>Agregar visitante</button>
               </div>
           </div>
           <div className="excursionImagen">
               <img src={`../assets/${tourElegido.imgTour}`} ></img>
           </div>
+          { //modal para cuando se agrega un tour
+            <div className="modal fade" id="modalTourAgregado" tabIndex="-1">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div className="modal-body"> El tour fue agregado al carrito de compras </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal"> Volver </button>
+                  <button type="button" id="btnConfirmar" className="btn btn-primary" onClick={manejarIrCarrito}>
+                    Ir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          }
           </>
         )}
       </div>
