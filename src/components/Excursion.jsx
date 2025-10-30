@@ -17,11 +17,11 @@ export default function Excursion({codigoTour, nombreTour, imgTour, categoriaTou
                     <p className="card-text card-text-STY">{resumenTour}</p>
                     <p className="card-text card-text-STY">{categoriaTour}</p>
                 </div>
-                <div className="card-footer bg-transparent border-top border-success text-center w-100">
-                    $ {precioPersona}
-                    <ButtonAddToCart tourAgregar={item}></ButtonAddToCart>
-                </div>
             </Link>
+            <div className="card-footer bg-transparent border-top border-success text-center w-100">
+                $ {precioPersona}
+                <ButtonAddToCart tourAgregar={item}></ButtonAddToCart>
+            </div>
         </div>
     )
 
