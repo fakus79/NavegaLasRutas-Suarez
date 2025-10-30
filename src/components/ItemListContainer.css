@@ -24,7 +24,7 @@
 }
 
 .excursiones .card {
-  flex: 1 1 calc(25% - 20px); /* 25% del ancho menos el gap para que entren 4 */
+  flex: 1 1 calc(25% - 20px); /* 4 por fila en desktop */
   max-width: calc(25% - 20px);
   box-sizing: border-box;
 }
@@ -109,4 +109,25 @@
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
   font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .excursiones .card {
+    flex: 1 1 100%;      /* una sola card para el ancho en mobile */
+    max-width: 100%;     
+  }
+
+  .excursionDetalle {
+    flex-direction: column; /* cambio display de cards para mobile */
+    align-items: center;
+  }
+
+  .excursionInfo, .excursionImagen {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .excursionInfo {
+    padding: 0 10px;
+  }
 }

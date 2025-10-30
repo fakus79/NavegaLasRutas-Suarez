@@ -15,7 +15,9 @@
 
 .navbar-categories {
     display: flex;
-    gap: 30px;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 5px;
 }
 
 .navbar-categories a {
@@ -31,6 +33,7 @@
 
 .navbar-right {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
 }

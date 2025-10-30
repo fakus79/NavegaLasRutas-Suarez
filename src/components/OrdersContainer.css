@@ -125,3 +125,35 @@
 .link-orden:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .tabla-ordenes thead {
+    display: none;
+  }
+
+  .tabla-ordenes,
+  .tabla-ordenes tbody,
+  .tabla-ordenes tr,
+  .tabla-ordenes td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabla-ordenes tr {
+    background: white;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+  }
+
+  .tabla-ordenes td {
+    border: none;
+    position: relative;
+    padding-left: 0%;
+    text-align: left;
+  }
+
+  
+}
