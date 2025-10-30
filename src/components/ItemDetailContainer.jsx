@@ -54,7 +54,7 @@ export default function ItemDetailContainer() {
           !tourElegido && (
           <div className="loading">
             <span>Cargando excursión de la base de datos</span>
-            <img width="50px" src="../assets/loading.gif"/>
+            <img width="50px" src="/assets/loading.gif"/>
           </div>
           )
         }
@@ -73,7 +73,7 @@ export default function ItemDetailContainer() {
               </div>
           </div>
           <div className="excursionImagen">
-              <img src={`../assets/${tourElegido.imgTour}`} ></img>
+              <img src={`/assets/${tourElegido.imgTour}`} ></img>
           </div>
           { //modal para cuando se agrega un tour
             <div className="modal fade" id="modalTourAgregado" tabIndex="-1">

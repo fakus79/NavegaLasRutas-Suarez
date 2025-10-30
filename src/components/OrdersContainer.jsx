@@ -27,7 +27,7 @@ export default function OrdersContainer() {
                 !ordenes && (
                     <div className="loading">
                         <span>Cargando ordenes de la base de datos</span>
-                        <img width="50px" src="../assets/loading.gif" />
+                        <img width="50px" src="/assets/loading.gif" />
                     </div>
                 )
             }

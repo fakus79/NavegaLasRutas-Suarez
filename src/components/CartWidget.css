@@ -1,5 +1,5 @@
 .navbar-cart {
-    background-image: url("./assets/cart.png"); 
+    background-image: url("/assets/cart.png"); 
     display: block;
     background-size: contain;
     text-align: center;

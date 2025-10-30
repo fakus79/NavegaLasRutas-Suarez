@@ -11,7 +11,7 @@ export default function Excursion({codigoTour, nombreTour, imgTour, categoriaTou
         // tarjeta de la excursión que muestra foto, nombre, resumen, botón agregar y tiene link a detalle
         <div className="excursiones card">
             <Link to={`/detalleTour/${codigoTour}`}>
-                <img src={`../assets/${imgTour}`} className="card-img-top" style={{ padding: "20px" }} ></img>
+                <img src={`/assets/${imgTour}`} className="card-img-top" style={{ padding: "20px" }} ></img>
                 <div className="card-body">
                     <h5 className="card-title">{nombreTour}</h5>
                     <p className="card-text card-text-STY">{resumenTour}</p>

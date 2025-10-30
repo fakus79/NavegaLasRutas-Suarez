@@ -55,7 +55,7 @@ export default function ItemListContainer(props) {
         excursionesObtenidas.length === 0 ? (
           <div className="loading">
             <span>Cargando excursiones de la base de datos</span>
-            <img width="50px" src="../assets/loading.gif" />
+            <img width="50px" src="/assets/loading.gif" />
           </div>
         )
           :

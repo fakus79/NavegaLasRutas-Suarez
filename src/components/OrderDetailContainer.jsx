@@ -30,7 +30,7 @@ export default function OrderDetailContainer() {
                 !ordenElegida && (
                     <div className="loading">
                         <span>Cargando orden de la base de datos</span>
-                        <img width="50px" src="../assets/loading.gif" />
+                        <img width="50px" src="/assets/loading.gif" />
                     </div>
                 )
             }
@@ -50,7 +50,7 @@ export default function OrderDetailContainer() {
                         <div className="order-items">
                             {ordenElegida.items.map((item, i) => (
                                 <div className="order-item" key={i}>
-                                    <img src={`../assets/${item.imgTour}`} alt={item.nombreTour} className="order-item-img" />
+                                    <img src={`/assets/${item.imgTour}`} alt={item.nombreTour} className="order-item-img" />
                                     <div className="order-item-info">
                                         <h4>{item.nombreTour}</h4>
                                         <p className="categoria">{item.categoriaTour}</p>

@@ -9,7 +9,7 @@ export default function NavBar() {
     <nav>
       <div className="navbar">
         <div className="navbar-logo">
-          <Link to="/"> <img src='./assets/logo.png' /> </Link>
+          <Link to="/"> <img src='/assets/logo.png' /> </Link>
         </div>
         <div className="navbar-categories">
           <Link to="/"> <span>Home</span> </Link>
