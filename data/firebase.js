@@ -61,6 +61,26 @@ export async function obtenerExcursionId(idTour){
   return docExcursion;
 }
 
+// función que devuelve los datos de una sola orden según parámetro 
+export async function obtenerOrdenId(idOrden){
+  // conecto a la colección y obtengo un documento que matchea con el parámetro
+  const refOrden = doc(bbdd, "ordenes", idOrden);
+  const snapOrden = await getDoc(refOrden);
+
+  return snapOrden.data();
+}
+
+// funcion que obtiene todas las ordenes de la BBDD 
+export async function obtenerOrdenes() {
+  // conecto a la colección y creo un snapshot con las órdenes de la misma
+  const refOrdenes = collection(bbdd, "ordenes");
+  const snapOrdenes = await getDocs(refOrdenes);
+  // devuelvo solo los datos agregando el ID 
+  const ordenes = snapOrdenes.docs.map(doc => ({ id: doc.id, ...doc.data(), }));
+
+  return ordenes;
+}
+
 // función que devuelve las excursiones filtradas por nombre de categoría
 export async function obtenerExcursionesPorCategoria(nombreCategoria){
   let queryCateg = null;
