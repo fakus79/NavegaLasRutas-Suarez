@@ -15,7 +15,7 @@
 
 .navbar-categories {
     display: flex;
-    gap: 40px;
+    gap: 30px;
 }
 
 .navbar-categories a {
@@ -27,4 +27,26 @@
 
 .navbar-categories a:hover {
     color: #007bff;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-orders {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-orders:hover {
+  color: #1e88e5;
+}
+
+.navbar-cart {
+  display: flex;
+  align-items: center;
 }

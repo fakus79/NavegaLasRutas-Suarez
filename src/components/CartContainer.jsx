@@ -59,7 +59,10 @@ function CartContainer() {
                     <div className="cart-empty">
                         <p>🛒 Tu carrito está vacío</p>
                     </div>
-                    <button className="clear-btn" disabled>Agregar items para finalizar la compra</button>
+                    <div>
+                        <button className="clear-btn" disabled>Agregar items para finalizar la compra</button>
+                        <Link to="/orders" className="cart-empty-orders">Ver órdenes existentes</Link>
+                    </div>
                 </>
             ) : (
                 <>

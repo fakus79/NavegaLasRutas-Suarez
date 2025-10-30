@@ -2,6 +2,8 @@ import './App.css'
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import OrderDetailContainer from "./components/OrderDetailContainer";
+import OrdersContainer from "./components/OrdersContainer";
 import CartContainer from "./components/CartContainer";
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { CartProvider } from "./context/cartContext";
@@ -24,6 +26,14 @@ export default function App() {
           </Route>
           <Route path="/detalleTour/:idTour" element={
             <ItemDetailContainer></ItemDetailContainer>
+          }>
+          </Route>
+          <Route path="/orders/:idOrden" element={
+            <OrderDetailContainer></OrderDetailContainer>
+          }>
+          </Route>
+          <Route path="/orders/" element={
+            <OrdersContainer></OrdersContainer>
           }>
           </Route>
           <Route path="/cart/" element={

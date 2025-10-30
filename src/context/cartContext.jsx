@@ -4,7 +4,7 @@ const cartContext = createContext();
 
 export function CartProvider(props){
     const [carrito, setCarrito] = useState([]);
-    console.log(carrito);
+    //console.log(carrito);
 
     function agregarAlCarrito(item){
         // copio el carrito existente y le agrego el item nuevo

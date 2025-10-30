@@ -21,8 +21,9 @@ export default function NavBar() {
           <Link to="/cat/variosdias"> <span>Varios días</span> </Link>
           <Link to="/cat/dtoefvo">  <span>Dto Efectivo</span> </Link>
         </div>
-        <div>
-          <Link to="/Cart"> <span><CartWidget></CartWidget></span> </Link>
+        <div className="navbar-right">
+          <Link to="/orders" className="navbar-orders">Órdenes </Link>
+          <Link to="/Cart" className="navbar-cart"><CartWidget/></Link>
         </div>
       </div>
     </nav>

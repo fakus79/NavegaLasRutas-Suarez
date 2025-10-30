@@ -1,0 +1,127 @@
+.order-container {
+  background-color: #f7f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.order-title {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.order-info {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.order-subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #333;;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.order-item-img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.order-item-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.order-item-info p {
+  font-size: 0.9rem;
+  margin-bottom: 0px;
+    
+}
+.order-item-info .categoria {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.lista-ordenes {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lista-ordenes h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.no-ordenes {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.tabla-ordenes {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-ordenes th,
+.tabla-ordenes td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.tabla-ordenes th {
+  background-color: #f3f6fa;
+  font-weight: bold;
+  color: #2a4d69;
+}
+
+.tabla-ordenes tr:hover {
+  background-color: #f9fbfd;
+}
+
+.link-orden {
+  color: #1e88e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link-orden:hover {
+  text-decoration: underline;
+}
