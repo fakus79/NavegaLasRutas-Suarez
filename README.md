@@ -2,43 +2,70 @@ Trabajo Práctico curso Coderhouse React comisión 88075 - Facundo Suarez Chagra
 
 *Consigna:* 
 
-*Entrega 2: Navega las rutas*
+*Entrega final: Web App de e-commerce*
 
-Implementa una herramienta de routing, la cual permitirá navegar a través de las diferentes vistas para tu tienda: catálogo principal de productos, catálogo de productos filtrados por categorías, y vista en detalle de un producto. Crea la funcionalidad necesaria para que los usuarios puedan:
-
-- Seleccionar desde el menú las distintas categorías disponibles.
-
-- Visualizar el listado, filtrando según esa elección.
-
-- Seleccionar un producto del listado y acceder a una vista en detalle del mismo, donde además contarán con una interfaz que posteriormente les permita agregar unidades al carrito.
+Desarrolla el Front End de una Single Page Application de e-commerce, utilizando React como herramienta base para crear las distintas piezas (componentes) de la interfaz de usuario (UI). Implementa los diferentes patrones y conceptos específicos de React, como el Virtual DOM y los hooks. Para la interacción entre las mismas, incorpora manejo de eventos, navegación entre componentes, y administración de datos globales (por ejemplo: el estado del carrito de compras). Como herramienta de estilado podrás utilizar de forma opcional CSS, SASS, o librerías de estilos (Bootstrap) o de componentes (Material UI). Podrás seleccionar una temática a elección, creando tu propio catálogo de productos, o utilizando herramientas generadoras de datos o "mock data".Implementa la conexión a un servicio en la nube (Firebase) que te provea de una Base de Datos donde almacenar el listado de tus productos, y te permita guardar registros de las compras realizadas por los usuarios del e-commerce.
 
 *Objetivos*
 
-- Implementar la funcionalidad de navegación entre las diferentes vistas utilizando enlaces y rutas.
+- Desarrollar el front-end de una webapp de tipo e-commerce con React.
 
-- Desarrollar la navegabilidad básica de la aplicación, permitiendo navegar desde el catálogo al detalle de cada item.
+- Incorporar Firestore como base de datos.
 
-*Requisitos*
+*Requisitos: Listado y Detalle de productos*
 
-- Implementación de React Router y creación de las distintas rutas necesarias para mostrar las vistas de nuestra app.
+- Generación dinámica del listado de productos y acceso a la vista en detalle de cada uno (ItemListContainer y ItemDetailContainer)
 
-- División entre componentes contenedores encargados de manejar el estado y los efectos (ItemListContainer, ItemDetailContainer) y componentes de presentación, encargados del apartado visual (estructura de elementos, estilos, classNames, etc.)
+- Separación en componentes contenedores y de presentación para separar responsabilidad de tareas en los mismos. (ItemListContainer, ItemList)
 
-- Los componentes contenedores harán un llamado asíncrono a "Promises" que resuelvan luego de un breve retardo los datos solicitados (listado de productos, un producto)
+- Implementación de componente ItemCount que permita seleccionar cantidad de unidades a agregar al carrito y realice las validaciones necesarias (valor mínimo, límite por stock, etc.)
 
-- Uso del método Array.map() y la prop "key" para listar todos los productos en el catálogo.
+- Ocultar el componente ItemCount en ItemDetail luego de agregar un producto al carrito.
 
-- Uso del hook useParams() de react router para leer el segmento actual de la URL y mostrar el contenido correspondiente.
+*Requisitos: Navegación*
+
+- Navegación entre las secciones de catálogo, categorías, detalle, carrito y checkout, utilizando React Router y mediante enlaces en el componente NavBar.
+
+- Navegación respetando el modelo Single Page App (sin que se generen recargas de la página del navegador)
+
+*Requisitos: Criterios de compras*
+
+- Almacenamiento del estado de carrito de compras mediante Context.
+
+- Mostrar el contenido del carrito dentro del componente Cart (productos, cantidades, subtotales, totales, etc.)
+
+- Mostrar un icono/imágen del carrito en el componente CartWidget. Debe mostrar el total de unidades agregadas al context
+
+*Requisitos: Firebase*
+
+- Implementación de Firestore como base de datos.
+
+- Creación de una colección donde se almacene la información de todos los productos del e-commerce, y realizar las consultas desde React para mostrarlos en la app.
+
+- Generación de un documento en Firestore al confirmar una compra, registrando los detalles de la misma.
+
+*Requisitos: Experiencia de usuario*
+
+- Utilizar renderizado condicional para mostrar loaders y mensajes condicionales, como “producto sin stock”, “carrito vacío”, etc.
+
+- Como finalización de la experiencia de usuario, brindarle al usuario el id (o detalles adicionales) de la orden generada en Firestore
+
+*Requisitos: Buenas prácticas y convenciones*
+
+- Respetar las convenciones y consignas del curso para los nombres de variables funciones, componentes. eventos, y arquitectura de carpetas/archivos.
+
+- Crear un documento en formato markdown documentando brevemente el proyecto
 
 *Recomendaciones*
 
-- No olvides utilizar los parámetros URL en el array de dependencias de tu useEffect para generar las actualizaciones necesarias al navegar.
+- Asegúrate de que tu repositorio no presenta errores y es público. Te aconsejamos clonarlo y realizar una instalación de cero para testear tu app y detectar posibles errores.
 
-- No crees diferentes rutas para cada categoría: puede parecer la solución más simple cuando tu aplicación sea pequeña, pero hará más difícil incorporar nuevas categorías y modificar la implementación en el futuro, ya que tendrás tu código duplicado en diversos componentes.
+- Otra forma de detectar fallas es realizar un deploy de tu proyecto en servicios gratuitos (ej: Vercel, Netlify).
 
-- Crear una ruta de tipo “404” (path=”*”) es una buena práctica y te ayudará a encontrar errores de navegación y enlaces mal formateados.
+- Si utilizaste variables de entorno para ocultar tus credenciales de Firebase, envíalas a tu profesor cuando realices la entrega.
 
-- Puedes incluir el componente contador ItemCount dentro del componente ItemDetail
+- No es necesario que envíes el enlace a tu panel de Firestore: el mismo es visible solo para el usuario administrador (es decir, accediendo con tu cuenta de google)
 
 *Formato*
-- Link a último commit de git. Debe tener el nombre “NavegaLasRutas+Apellido”, por ejemplo “NavegaLasRutas+Fernandez” Opcional: Entrega un GIF mostrando la navegabilidad.
+- Link al repositorio de GitHub con el nombre “ProyectoFinal+Apellido”, por ejemplo “ProyectoFinal+Fernandez”
+

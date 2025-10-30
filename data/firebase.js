@@ -5,12 +5,12 @@ import { collection, doc, getDoc, getDocs, getFirestore, query, where, addDoc } 
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBr63nDHMuR5uLcRXYuTT9XcOeSm8GLohU",
+  apiKey: import.meta.env.VITE_FS_APIKEY,
   authDomain: "react-fs-4ab09.firebaseapp.com",
-  projectId: "react-fs-4ab09",
+  projectId: import.meta.env.VITE_FS_PROJECT_ID,
   storageBucket: "react-fs-4ab09.firebasestorage.app",
   messagingSenderId: "121964273739",
-  appId: "1:121964273739:web:182fb752d00f215c5cadce"
+  appId: import.meta.env.VITE_FS_APP_ID
 };
 
 // funcion helper que se llama una sola vez para cargar el array de excursiones a firebase
